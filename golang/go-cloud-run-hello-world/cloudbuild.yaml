@@ -28,7 +28,7 @@ steps:
   name: google/cloud-sdk
   args: ['gcloud', 'run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest'
   ]
-  waitFor: ['deploy'
+  waitFor: ['deploy']
 
 options:
   logging: CLOUD_LOGGING_ONLY 
