@@ -21,7 +21,7 @@ steps:
          '--platform', 'managed',
          '--allow-unauthenticated',
          '--port', '8080',
-         '--set-traffic', 'latest=100'
+         '--to-latest'
   ] 
   waitFor: ['push']
 
