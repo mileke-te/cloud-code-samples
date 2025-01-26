@@ -21,7 +21,7 @@ steps:
          '--platform', 'managed',
          '--allow-unauthenticated',
          '--port', '8080',
-         '--to-latest'
+         '--to-latest', '&&', 'gcloud', 'run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest'
   ] 
   waitFor: ['push']
 
