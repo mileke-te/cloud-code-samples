@@ -21,9 +21,14 @@ steps:
          '--platform', 'managed',
          '--allow-unauthenticated',
          '--port', '8080',
-         '&&', 'gcloud', 'run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest'
   ] 
   waitFor: ['push']
+
+  id: update
+  name: google/cloud-sdk
+  args: ['gcloud', 'run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest'
+  ]
+  waitFor: ['deploy'
 
 options:
   logging: CLOUD_LOGGING_ONLY 
