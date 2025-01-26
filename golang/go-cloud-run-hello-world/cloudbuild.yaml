@@ -20,7 +20,8 @@ steps:
          '--region', '${_REGION}',
          '--platform', 'managed',
          '--allow-unauthenticated',
-         '--port', '8080'
+         '--port', '8080',
+         '--set-traffic', 'latest=100'
   ] 
   waitFor: ['push']
 
