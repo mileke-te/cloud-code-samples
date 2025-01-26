@@ -13,7 +13,7 @@ steps:
 
 - # Deploy to Cloud Run
   # name: google/cloud-sdk
-  id: deploy
+  id: run
   name: google/cloud-sdk
   args: ['gcloud', 'run', 'deploy', '${_APP_NAME}',
          '--image', 'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}',
