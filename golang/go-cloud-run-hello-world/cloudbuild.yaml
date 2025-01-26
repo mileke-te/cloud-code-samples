@@ -23,11 +23,13 @@ steps:
          '--port', '8080',
   ] 
   waitFor: ['push']
-
+  
+- # Update traffic
   id: update
   name: google/cloud-sdk
   args: ['gcloud', 'run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest'
   ]
+  waitFor: ['run']
 
 options:
   logging: CLOUD_LOGGING_ONLY 
