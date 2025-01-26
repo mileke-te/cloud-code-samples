@@ -24,7 +24,7 @@ steps:
   waitFor: ['push']
 
 options:
-  logging: NONE 
+  logging: CLOUD_LOGGING_ONLY 
 
 # images: [
 #   'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}'
