@@ -27,7 +27,7 @@ steps:
 - # Update traffic
   id: update
   name: google/cloud-sdk
-  args: ['gcloud', 'run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest'
+  args: ['gcloud', 'run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest', '--region', '${_REGION}'
   ]
   waitFor: ['run']
 
