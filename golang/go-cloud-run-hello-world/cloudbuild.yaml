@@ -2,7 +2,7 @@ steps:
 - # Build ${_APP_NAME} image
   id: build
   name: gcr.io/cloud-builders/docker:latest
-  args: ['build','-t', 'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}', '-f', './golang/go-cloud-run-hello-world/Dockerfile', '.']
+  args: ['build','-t', 'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}', '.']
   dir: '${_DIR}'
 
 - # Push the container image to Artifact Registry
