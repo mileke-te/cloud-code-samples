@@ -1,22 +1,22 @@
 steps:
-- # Build $APP_NAME image
+- # Build ${_APP_NAME} image
   id: build
   name: gcr.io/cloud-builders/docker:latest
-  args: ['build','-t', 'gcr.io/$PROJECT_ID/$APP_NAME:${_TAG}', '-f', 'Dockerfile', '.']
+  args: ['build','-t', 'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}', '-f', 'Dockerfile', '.']
 
 - # Push the container image to Artifact Registry
   id: push
   name: gcr.io/cloud-builders/docker
-  args: ['push', 'gcr.io/$PROJECT_ID/$APP_NAME:${_TAG}']
+  args: ['push', 'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}']
   waitFor: ['build']
 
 - # Deploy to Cloud Run
   # name: google/cloud-sdk
   id: deploy
   name: gcr.io/cloud-builders/gcloud
-  args: ['run', 'deploy', '$APP_NAME',
-         '--image', 'gcr.io/$PROJECT_ID/$APP_NAME:${_TAG}',
-         '--region', '$REGION',
+  args: ['run', 'deploy', '${_APP_NAME}',
+         '--image', 'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}',
+         '--region', '${_REGION}',
          '--platform', 'managed',
          '--allow-unauthenticated'
          #'--port', '80',
@@ -24,14 +24,14 @@ steps:
   waitFor: ['push']
 
 options:
-  logging: NONE
+  logging: NONE 
 
 # images: [
-#   'gcr.io/$PROJECT_ID/$APP_NAME:${_TAG}'
+#   'gcr.io/${_PROJECT_ID}/${_APP_NAME}:${_TAG}'
 # ]
 
 substitutions:
   _TAG: latest 
-  PROJECT_ID: weaceace
-  APP_NAME: go-app
-  REGION: europe-west1
+  _PROJECT_ID: weaceace
+  _APP_NAME: go-app
+  _REGION: europe-west1
