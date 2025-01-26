@@ -23,6 +23,9 @@ steps:
   ]
   waitFor: ['push']
 
+options:
+  logging: NONE
+
 # images: [
 #   'gcr.io/$PROJECT_ID/$APP_NAME:${_TAG}'
 # ]
