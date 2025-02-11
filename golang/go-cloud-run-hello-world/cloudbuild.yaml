@@ -25,11 +25,11 @@ steps:
   waitFor: ['push'] 
   
 - # Update traffic
-  id: update
-  name: gcr.io/cloud-builders/gcloud
-  args: ['run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest', '--region', '${_REGION}'
-  ]
-  waitFor: ['run']
+  # id: update
+  # name: gcr.io/cloud-builders/gcloud
+  # args: ['run', 'services', 'update-traffic', '${_APP_NAME}', '--to-latest', '--region', '${_REGION}'
+  # ]
+  # waitFor: ['run']
 
 options:
   logging: CLOUD_LOGGING_ONLY 
