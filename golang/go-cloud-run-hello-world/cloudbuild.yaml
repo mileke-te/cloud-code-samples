@@ -23,6 +23,7 @@ steps:
          '--port', '8080',
   ] 
   waitFor: ['push'] 
+
   
 # - # Update traffic
 #   id: update
