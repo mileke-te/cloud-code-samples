@@ -22,7 +22,7 @@ steps:
          '--allow-unauthenticated',
          '--port', '8080',
   ] 
-  waitFor: ['push']
+  waitFor: ['push'] 
   
 - # Update traffic
   id: update
