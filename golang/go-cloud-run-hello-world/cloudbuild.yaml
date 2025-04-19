@@ -41,7 +41,7 @@ options:
 
 substitutions:
   _TAG: latest 
-  _PROJECT_ID: weaceace
-  _APP_NAME: go-app
-  _REGION: europe-west1
+  #_PROJECT_ID: weaceace
+  #_APP_NAME: go-app
+  #_REGION: europe-west1
   _DIR: golang/go-cloud-run-hello-world
